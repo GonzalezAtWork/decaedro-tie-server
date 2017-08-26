@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
-	<host>postgresql01.KALITERA.com.br</host>
-	<name>kalitera1</name>
-	<port>5432</port>
-	<user>kalitera1</user>
-	<password>telikara081213</password>
-	<debug>true</debug>
-</database>
