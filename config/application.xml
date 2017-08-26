@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<name>TIE</name>
+	<description>Ocorrências</description>
+	<version>
+		<number>4.0</number>
+		<build>170826001</build>
+		<date>26/08/2017</date>
+	</version>
+	<recordsToShow>15</recordsToShow>
+	<blockLenght>10</blockLenght>
+</application>
