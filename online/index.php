@@ -14,7 +14,7 @@ header("Access-Control-Allow-Origin: *");
 		<meta http-equiv="cache-control" content="no-cache"/>
 		<meta http-equiv="expires" content="Mon, 22 Jul 2002 11:12:01 GMT"/>
 		<meta http-equiv="pragma" content="no-cache"/>
-		<title>TIE4 - Ocorrências</title>
+		<title>TIE Ocorrências</title>
 		<script language="javascript" src="jquery/javascript.js"></script>
 		<script language="javascript" src="jquery/mobile.js"></script>
 		<link rel="stylesheet" href="jquery/css.css"/>
@@ -31,7 +31,6 @@ header("Access-Control-Allow-Origin: *");
 			} else {
 				$('#token').val("905d5e02167ddc7b27c017fd06653460");
 			}
-			alert("1");
 			abreTela('nova_ocorrencia');
 		});
 		</script>

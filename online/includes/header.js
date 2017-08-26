@@ -22,7 +22,7 @@ function newHref(_endereco){
 			if( xmlHttp.readyState == 4 ){
 				var htmlRetorno = xmlHttp.responseText
 				xmlloaded = true;
-				$('#conteudo').html(htmlRetorno);			
+				$('#conteudo').html(htmlRetorno);
 				if( document.getElementById('novo_rodape') ){
 					$('#rodape').html( $('#novo_rodape').html() );
 					$('#novo_rodape').html('');
@@ -32,7 +32,9 @@ function newHref(_endereco){
 					document.getElementById('rodape').style.display = 'none';
 					$('#rodape').html('');				
 				}
+				
 				loading('hide');
+				
 				$('#conteudo').trigger('create');
 				$('html, body').animate({ scrollTop: 0 }, 0);
 				//window.location.href="#" + endereco.split('.htm').join('');	
