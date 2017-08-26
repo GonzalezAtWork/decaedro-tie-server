@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html> 
+<div>
+	<script language="javascript">
+		var itensVistoria = "";
+		runScript = function (){
+			var ponto = eval('('+ parametro +')');
+			$('#id_ponto').val(ponto['id_ponto']);
+			$('#txt_titulo').html(ponto['endereco']);
+			$('#otima').val(ponto['otima']);
+			$('#simak').val(ponto['simak']);
+			$('#txt_detalhes').html('<div style="margin-bottom:6px;"><b>OTIMA:</b> '+ ponto['otima'] + '</div><div style="margin-bottom:6px;"><b>SIMAK:</b> '+ ponto['simak'] + '</div><div>' + ponto['tipo'] + '</div>');
+			itensVistoria = "";
+			$('#observacaovistoria').val("");		
+			subparametro = 'NOVA';
+			parametro = '0';
+			pegaItens();
+		}
+		function pegaItens(){
+			loading();
+			$.ajax({
+				type: "POST",
+				//timeout: 2000,
+				cache: false,
+				url: URL_WEBSERVICE + "ocorrencia_listatipoitens.php?rand=" +(new Date().getTime()),
+				data: {
+					token: $('#token').val()
+				},
+				success: function(json){
+					if(json == 'null'){
+						erro('Nenhum resultado encontrado!');
+					}else{
+						montaItens( json );
+					}
+				},
+				error: function(xmlHttpRequest, textStatus, errorThrow){
+					// Erro 324:net::ERR_EMPTY_RESPONSE					
+					if(xmlHttpRequest.readyState == 0 || xmlHttpRequest.status == 0) {
+						//erro(textStatus + ': '+ errorThrow);
+						erro('Erro: Sem sinal de internet');
+					}else{
+						erro(textStatus + ': '+ errorThrow);					
+					}
+				}
+			});
+		}
+		function abreItens(id_tipoitem, tipo){
+			loading();
+			$.ajax({
+				type: "POST",
+				//timeout: 2000,
+				cache: false,
+				url: URL_WEBSERVICE + "ocorrencia_listaitens_novo.php?rand=" +(new Date().getTime()),
+				data: {
+					id_tipoitem: id_tipoitem,
+					token: $('#token').val()
+				},
+				success: function(result){
+					result = eval(result);
+					var _title = tipo;
+					var _options = [];
+					var _values = [];
+					var _checkeds = [];
+					for (var i = 0; i < result.length; i++) {	
+						_options.push( toTitleCase( result[i]["nome"] ) );
+						_values.push( result[i]["id_item"] );
+						if( (", " + itensVistoria).indexOf(", " + result[i]["id_item"] ) >= 0 ){
+							_checkeds.push('true');
+						}else{
+							_checkeds.push('false');						
+						}
+					}
+					if(typeof(Android) != "undefined"){
+						Android.js_OpenOptions( 
+							_title,
+							_options.join(','), 
+							_values.join(','), 
+							_checkeds.join(','),
+							"salvaItens"
+						);
+					}else{
+						erro( _options.join(',') );
+					}
+				},
+				error: function(xmlHttpRequest, textStatus, errorThrow){
+					// Erro 324:net::ERR_EMPTY_RESPONSE					
+					if(xmlHttpRequest.readyState == 0 || xmlHttpRequest.status == 0) {
+						//erro(textStatus + ': '+ errorThrow);
+						erro('Erro: Sem sinal de internet');
+					}else{
+						erro(textStatus + ': '+ errorThrow);					
+					}
+				}
+			});
+
+			var q = " select * from vistoriasitens where id_tipoitem = " + id_tipoitem + " order by nome ";
+
+		}
+		function salvaItens(_values, _checkeds){
+			var ids = _values.split(" ").join("").split(",");
+			var checks = _checkeds.split(" ").join("").split(",");
+			for (var i = 0; i < ids.length; i++) {
+				itensVistoria = (", "+ itensVistoria + ", ").split(", "+ ids[i] + ", " ).join("");
+				itensVistoria = "|||" + itensVistoria + "|||";
+				itensVistoria = itensVistoria.split("|||, ").join("");
+				itensVistoria = itensVistoria.split(", |||").join("");
+				itensVistoria = itensVistoria.split("|||").join("");
+				if(checks[i] == "true"){
+					if(itensVistoria != ""){
+						itensVistoria += ", ";
+					}
+					itensVistoria += ids[i];
+				}
+			}
+		}
+		function toTitleCase(str) {
+			str = str.toLowerCase();
+			return str.replace(/(?:^|\s)\w/g, function(match) {
+				return match.toUpperCase();
+			});
+		}
+		function erro(msg){
+			loading('hide');
+			alert(msg);
+		}
+		function montaItens(result){
+			$('#itens').html( result );
+			finalizou();
+		}
+		function finalizou(){			
+			var itensChecked = itensVistoria.split(', ');
+			for( var ble in itensChecked){
+				$('#iv_' + itensChecked[ ble ] ).attr('checked','checked');
+			}
+			$('#conteudo').trigger('create');
+			document.getElementById('detalhes').style.display = 'block';	
+			loading('hide');
+		}
+
+		function salvar(){
+			loading();
+			var q = "";
+			$( "img" ).each(function( index ) {
+				if( $(this).attr('foto') == 'ok' ){
+					var nq = "";
+					nq += '{';
+					nq += '"base64":"'+			$(this).attr('src').split('data:image/jpeg;base64,').join('') +'",';
+					nq += '"data":"'+			$(this).attr('data') +'",';
+					nq += '"id_item":"'+		$(this).attr('id_item') +'",';
+					nq += '"id_vistoria":"'+	$(this).attr('id_vistoria') +'",';
+					nq += '"id_os":"'+			$(this).attr('id_os') +'",';
+					nq += '"id_ocorrencia":"'+	$(this).attr('id_ocorrencia') +'",';
+					nq += '"id_ponto":"'+		$(this).attr('id_ponto') +'",';
+					nq += '"nome":"'+			$(this).attr('nome') +'",';
+					nq += '"stamp":"'+			$(this).attr('stamp') +'" ';
+					nq += '},';
+					q += nq;
+				}
+			});
+			if( q != ""){
+				q += "{}";
+				q = q.split(",{}").join("");
+				q = "[" + q + "]";
+			}
+			$.ajax({
+				type: "POST",
+				//timeout: 2000,
+				cache: false,
+				url: URL_WEBSERVICE + "ocorrencia_insert.php?rand=" +(new Date().getTime()),
+				data: {
+					token:					$('#token').val(),
+					id_ponto:				$('#id_ponto').val(),
+					executada:				"false",
+					observacao:				"",
+					id_equipe:				"",
+					itensVistoria:			itensVistoria,
+					observacaoVistoria:		$('#observacaovistoria').val(),
+					itensManutencao:		"",
+					observacaoManutencao :	"",
+					id_vistoria:			"",
+					fotos:	q
+				},
+				success: function(json){
+					if(json.indexOf("ERRO") >=0 ){
+						json = json.split('"').join("");
+						json = json.split('{').join("");
+						json = json.split('}').join("");
+						continua(json + " \nToken: " + $('#token').val());
+					}else{
+						continua();
+					}
+				},
+				error: function(xmlHttpRequest, textStatus, errorThrow){
+					// Erro 324:net::ERR_EMPTY_RESPONSE					
+					if(xmlHttpRequest.readyState == 0 || xmlHttpRequest.status == 0) {
+						//erro(textStatus + ': '+ errorThrow);
+						erro('Erro: Sem sinal de internet');
+					}else{
+						erro(textStatus + ': '+ errorThrow);					
+					}
+				}
+			});
+
+		}
+		function continua(msg){
+			if(typeof(msg) == "undefined"){
+				msg = "Ocorrência criada com sucesso!";
+				abreTela('nova_ocorrencia');
+			}
+			if(typeof(Android) != "undefined"){
+				Android.js_showMsg(msg);
+			}else{
+				erro(msg);
+			}
+		}
+		function chkFoto(id_item){
+			if( typeof(id_item) != "undefined" ){
+				var obj = document.getElementById('iv_' + id_item);
+				if( obj.checked && obj.getAttribute("obrigafoto") == "true" ){
+					var nome = subparametro +"_"+ id_item;
+					tiraFoto( nome, $('#id_ponto').val(), subparametro, '0', parametro, id_item, $('#otima').val(), $('#simak').val() );
+				}
+			}		
+		}
+		function man_tiraFoto(){
+			var id_item = "0";
+			var nome = subparametro +"_"+ id_item;
+			tiraFoto( nome, $('#id_ponto').val(), subparametro, '0', parametro, id_item, $('#otima').val(), $('#simak').val() );
+		}
+	</script>
+	<input type="hidden" name="otima" id="otima" value=""/>
+	<input type="hidden" name="simak" id="simak" value=""/>
+	<div id="detalhes" data-role="content" style="display:none">
+		<h4 align="center" name="txt_detalhes" id="txt_detalhes">&nbsp;</h4>
+		<h3 align="center" name="txt_titulo" id="txt_titulo">&nbsp;</h3>
+		<div data-role="fieldcontain">
+            <label for="itens">Opções de Vistorias:</label>
+			<table width="100%" border="0" cellspacing="10" id="itens" name="itens"></table>
+        </div>
+		<div data-role="fieldcontain">
+            <label for="observacaovistoria">Observações:</label>
+            <textarea name="observacaovistoria" id="observacaovistoria" placeholder="" style="height:80px"></textarea>
+        </div>
+		<div data-role="fieldcontain">
+			<div id="img_content" name="img_content" align="center"></div>
+        </div>
+	</div>
+	<div id="novo_rodape" name="novo_rodape">
+		<div class="ui-grid-b">
+			<div class="ui-block-a" style="padding-left:5px">
+				<a data-role="button" name="btVoltar" id="btVoltar" href="javascript:abreTela('nova_ocorrencia')" data-icon="back" data-iconpos="top" data-mini="true">
+					Voltar
+				</a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" href="javascript:man_tiraFoto()" data-mini="true" data-icon="star" data-iconpos="top">
+					Fotografia
+				</a>
+			</div>
+			<div class="ui-block-c">
+				<a data-role="button" href="javascript:salvar()" data-icon="check" data-iconpos="top" data-mini="true">
+					Concluir
+				</a>
+			</div>
+		</div>
+    </div>
+</div>

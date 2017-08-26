@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+	<name>Kalitera</name>
+	<description>Sistema de Manutenção</description>
+	<version>
+		<number>1.0</number>
+		<build>1</build>
+		<date>07/04/2013</date>
+	</version>
+	<recordsToShow>15</recordsToShow>
+	<blockLenght>10</blockLenght>
+</application>

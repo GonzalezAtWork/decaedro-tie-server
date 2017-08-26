@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html> 
+<div>
+	<script language="javascript">
+		var itensVistoria = "";
+		runScript = function (){
+			var ponto = eval('('+ parametro +')');
+			$('#id_ponto').val(ponto['id_ponto']);
+			$('#txt_titulo').html(ponto['endereco']);
+			$('#otima').val(ponto['otima']);
+			$('#simak').val(ponto['simak']);
+			$('#txt_detalhes').html('<div style="margin-bottom:6px;"><b>OTIMA:</b> '+ ponto['otima'] + '</div><div style="margin-bottom:6px;"><b>SIMAK:</b> '+ ponto['simak'] + '</div><div>' + ponto['tipo'] + '</div>');
+			itensVistoria = "";
+			$('#observacaovistoria').val("");		
+			subparametro = 'NOVA';
+			parametro = '0';
+			pegaItens();
+		}
+		function pegaItens(){
+			loading();
+			$.ajax({
+				type: "POST",
+				//timeout: 2000,
+				cache: false,
+				url: URL_WEBSERVICE + "ocorrencia_listaitens.php?rand=" +(new Date().getTime()),
+				data: {
+					token:					$('#token').val()
+				},
+				success: function(json){
+					if(json == 'null'){
+						erro('Nenhum resultado encontrado!');
+					}else{
+						montaItens( json );
+					}
+				},
+				error: function(jqXHR, textStatus, errorThrow){
+					if(xmlHttpRequest.readyState == 0 || xmlHttpRequest.status == 0) {
+						alert(textStatus + ': '+ errorThrow);
+					}
+				}
+			});
+		}
+		function erro(msg){
+			alert(msg);
+			loading('hide');
+		}
+		function montaItens(result){
+			$('#itens').html( result );
+			finalizou();
+		}
+		function finalizou(){			
+			var itensChecked = itensVistoria.split(', ');
+			for( var ble in itensChecked){
+				$('#iv_' + itensChecked[ ble ] ).attr('checked','checked');
+			}
+			$('#conteudo').trigger('create');
+			document.getElementById('detalhes').style.display = 'block';	
+			loading('hide');
+		}
+		var arr_iv = [];
+		function salvar(){
+			loading();
+			arr_iv = [];
+			$("input:checkbox:checked").each(function(){
+				arr_iv.push( $(this).attr('name').split('iv_').join('') );
+			});
+			var q = "";
+			$( "img" ).each(function( index ) {
+				if( $(this).attr('foto') == 'ok' ){
+					var nq = "";
+					nq += '{';
+					nq += '"base64":"'+			$(this).attr('src').split('data:image/jpeg;base64,').join('') +'",';
+					nq += '"data":"'+			$(this).attr('data') +'",';
+					nq += '"id_item":"'+		$(this).attr('id_item') +'",';
+					nq += '"id_vistoria":"'+	$(this).attr('id_vistoria') +'",';
+					nq += '"id_os":"'+			$(this).attr('id_os') +'",';
+					nq += '"id_ocorrencia":"'+	$(this).attr('id_ocorrencia') +'",';
+					nq += '"id_ponto":"'+		$(this).attr('id_ponto') +'",';
+					nq += '"nome":"'+			$(this).attr('nome') +'",';
+					nq += '"stamp":"'+			$(this).attr('stamp') +'" ';
+					nq += '},';
+					q += nq;
+				}
+			});
+			if( q != ""){
+				q += "{}";
+				q = q.split(",{}").join("");
+				q = "[" + q + "]";
+			}
+			$.ajax({
+				type: "POST",
+				//timeout: 2000,
+				cache: false,
+				url: URL_WEBSERVICE + "ocorrencia_insert.php?rand=" +(new Date().getTime()),
+				data: {
+					token:					$('#token').val(),
+					id_ponto:				$('#id_ponto').val(),
+					executada:				"false",
+					observacao:				"",
+					id_equipe:				"",
+					itensVistoria:			arr_iv.join(', '),
+					observacaoVistoria:		$('#observacaovistoria').val(),
+					itensManutencao:		"",
+					observacaoManutencao :	"",
+					id_vistoria:			"",
+					fotos:	q
+				},
+				success: function(json){
+					//if(json == '{"postgresql":"OK"}'){
+						continua();
+					//}else{
+					//	continua(json);
+					//}
+				},
+				error: function(xmlHttpRequest, textStatus, errorThrow){
+					// Erro 324:net::ERR_EMPTY_RESPONSE					
+					if(xmlHttpRequest.readyState == 0 || xmlHttpRequest.status == 0) {
+						alert(textStatus + ': '+ errorThrow);
+					}
+				}
+			});
+
+		}
+		function continua(msg){
+			if(typeof(msg) == "undefined"){
+				msg = "Ocorrência criada com sucesso!";
+				abreTela('nova_ocorrencia');
+			}
+			if(typeof(Android) != "undefined"){
+				Android.js_showMsg(msg);
+			}else{
+				alert(msg);
+			}
+		}
+		function chkFoto(id_item){
+			if( typeof(id_item) != "undefined" ){
+				var obj = document.getElementById('iv_' + id_item);
+				if( obj.checked && obj.getAttribute("obrigafoto") == "true" ){
+					//tiraFoto(nome, id_ponto, id_ocorrencia, id_os, id_vistoria, id_item, otima, simak){
+					var nome = subparametro +"_"+ id_item;
+					tiraFoto( nome, $('#id_ponto').val(), subparametro, '0', parametro, id_item, $('#otima').val(), $('#simak').val() );
+				}
+			}		
+		}
+		function man_tiraFoto(){
+			//tiraFoto(nome, id_ponto, id_ocorrencia, id_os, id_vistoria, id_item, otima, simak){
+			var id_item = "0";
+			var nome = subparametro +"_"+ id_item;
+			tiraFoto( nome, $('#id_ponto').val(), subparametro, '0', parametro, id_item, $('#otima').val(), $('#simak').val() );
+		}
+	</script>
+	<input type="hidden" name="otima" id="otima" value=""/>
+	<input type="hidden" name="simak" id="simak" value=""/>
+	<div id="detalhes" data-role="content" style="display:none">
+		<h4 align="center" name="txt_detalhes" id="txt_detalhes">&nbsp;</h4>
+		<h3 align="center" name="txt_titulo" id="txt_titulo">&nbsp;</h3>
+		<div id="itens" name="itens"></div>
+		<div data-role="fieldcontain">
+            <label for="observacaovistoria">Observações:</label>
+            <textarea name="observacaovistoria" id="observacaovistoria" placeholder="" style="height:80px"></textarea>
+        </div>
+		<div data-role="fieldcontain">
+			<div id="img_content" name="img_content" align="center"></div>
+        </div>
+	</div>
+	<div id="novo_rodape" name="novo_rodape">
+		<div class="ui-grid-b">
+			<div class="ui-block-a" style="padding-left:5px">
+				<a data-role="button" name="btVoltar" id="btVoltar" href="javascript:abreTela('nova_ocorrencia')" data-icon="back" data-iconpos="top" data-mini="true">
+					Voltar
+				</a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" href="javascript:man_tiraFoto()" data-mini="true" data-icon="star" data-iconpos="top">
+					Fotografia
+				</a>
+			</div>
+			<div class="ui-block-c">
+				<a data-role="button" href="javascript:salvar()" data-icon="check" data-iconpos="top" data-mini="true">
+					Concluir
+				</a>
+			</div>
+		</div>
+    </div>
+</div>

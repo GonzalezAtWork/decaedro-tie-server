@@ -1,0 +1,25 @@
+<?php
+
+error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors', true);
+
+$id_padrao = $_REQUEST['id_padrao'];
+
+include('../classes/XMLObject.php');
+include('../classes/database.php');
+
+#Conexão ao banco de dados
+$db = Database::getInstance();
+
+//$query  = "delete from pontosPadrao where (id_padrao = ".$id_padrao.") ";
+$query  = "update pontosPadrao set ativo = FALSE where (id_padrao = ".$id_padrao.");";
+
+$db->setQuery($query);
+$db->execute();
+$dados = $db->getResultSet();
+
+//echo $query;
+
+//Retornando apenas o primeiro elemento do array para evitar array bidimensional denecessario
+echo json_encode($dados[0]);
+?>

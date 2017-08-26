@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+	<host>zelaznog.net</host>
+	<name>zelaznog_kalitera</name>
+	<port>5432</port>
+	<user>zelaznog_kali</user>
+	<password>ieBwnknM=NR+</password>
+	<debug>true</debug>
+</database>

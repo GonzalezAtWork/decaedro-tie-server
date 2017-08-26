@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+
+<div>
+
+	<script language="javascript">
+
+		runScript = function () {
+			document.getElementById('detalhes').style.display = 'block';	
+		}
+
+      function erro(msg){
+         alert( msg );
+         $('#numero').val('');
+         loading('hide');
+      }
+
+      function procurarSimak() {
+
+			if ($('#numero').val() != "") {
+
+				loading();
+
+            if (isNaN($('#numero').val())) {
+
+               alert (URL_WEBSERVICE);
+               $.ajax({
+                  type: "POST",
+                  //timeout: 2000,
+                  cache: false,
+                  url: URL_WEBSERVICE + "busca_endereco.php?rand=" +(new Date().getTime()),
+                  data: {
+                     token:	$('#token').val(),
+                     endereco:	$('#endereco').val()
+                  },
+                  success: function(json){
+                     if(json == 'null'){
+                        erro( 'Endereço não encontrado!' );
+                     }else{
+                        abreTela('busca_endereco_detalhes', json);
+                     }
+                  },
+                  error: function(jqXHR, textStatus, errorThrow){
+                     //erro( textStatus + ': '+ errorThrow );
+                     erro("Atenção: \bInternet instável\b!\nTente novamente.");
+                  }
+               });
+
+            } else {
+
+               $.ajax({
+                  type: "POST",
+                  //timeout: 2000,
+                  cache: false,
+                  url: URL_WEBSERVICE + "busca_ponto.php?rand=" +(new Date().getTime()),
+                  data: {
+                     token: $('#token').val(),
+                     codigo: parseInt($('#numero').val(),10) //Tirando zeros a esquerda
+                  },
+                  success: function(json){
+                     if(json == 'null'){
+                        erro( 'Número '+ $('#numero').val() +' não encontrado!' );
+                     }else{
+                        abreTela('nova_ocorrencia_detalhes', json);
+                     }
+                  },
+                  error: function(jqXHR, textStatus, errorThrow){
+                     //erro( textStatus + ': '+ errorThrow );
+                     erro("Atenção: \bInternet instável\b!\nTente novamente.");
+                  }
+               });
+
+            }
+
+         } else {
+				if(typeof(Android) != 'undefined'){
+					Android.js_showMsg('É preciso digitar Número ou Endereço do Ponto!');
+				}else{
+					alert('É preciso digitar Número ou Endereço do Ponto');
+				}
+			}
+		}
+
+	</script>
+
+	<div id="detalhes" data-role="content" style="display:none">
+
+		<h3 align="center" name="txt_titulo" id="txt_titulo">Nova Ocorrência</h3>
+		<h4 align="center" name="txt_detalhes" id="txt_detalhes">Procurar Ponto de Parada</h4>
+
+      <div data-role="fieldcontain">
+         <label for="numero" align="right" style="padding-top:7px;">Dados do Ponto:</label>
+         <input type="tel" name="numero" id="numero" placeholder=""/>
+      </div>
+
+      <div data-role="fieldcontain">
+         <label for="numero">&nbsp;</label>
+			<div align="center"><img src="images/v1_preto.png"/></div> <!-- logo da Otima -->
+      </div>
+	</div>
+
+	<div id="novo_rodape" name="novo_rodape">
+		<div class="ui-grid-b">
+			<div class="ui-block-a">&nbsp;</div>
+			<div class="ui-block-b"><a data-role="button" href="javascript:procurarSimak()" data-icon="check" data-iconpos="top" data-mini="true">Procurar</a></div>
+			<div class="ui-block-c">&nbsp;</div>
+		</div>
+    </div>
+</div>

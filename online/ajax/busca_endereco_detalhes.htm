@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html> 
+<div>
+	<script language="javascript">
+		var itensVistoria = "";
+		runScript = function () {
+         //Variável de json = parametro
+
+         alert(parametro);
+
+			//var ponto = eval('('+ parametro +')');
+
+
+			//$('#id_ponto').val(ponto['id_ponto']);
+			//$('#txt_titulo').html(ponto['endereco']);
+			//$('#otima').val(ponto['otima']);
+			//$('#simak').val(ponto['simak']);
+			//$('#txt_detalhes').html('<div style="margin-bottom:6px;"><b>OTIMA:</b> '+ ponto['otima'] + '</div><div style="margin-bottom:6px;"><b>SIMAK:</b> '+ ponto['simak'] + '</div><div>' + ponto['tipo'] + '</div>');
+			//itensVistoria = "";
+			//$('#observacaovistoria').val("");
+			//subparametro = 'NOVA';
+			//parametro = '0';
+			//pegaItens();
+		}
+	</script>
+	<input type="hidden" name="otima" id="otima" value=""/>
+	<input type="hidden" name="simak" id="simak" value=""/>
+	<div id="detalhes" data-role="content" style="display:none">
+		<h4 align="center" name="txt_detalhes" id="txt_detalhes">&nbsp;</h4>
+		<h3 align="center" name="txt_titulo" id="txt_titulo">&nbsp;</h3>
+		<div data-role="fieldcontain">
+            <label for="itens">Opções de Vistorias:</label>
+			<table width="100%" border="0" cellspacing="10" id="itens" name="itens"></table>
+        </div>
+		<div data-role="fieldcontain">
+            <label for="observacaovistoria">Observações:</label>
+            <textarea name="observacaovistoria" id="observacaovistoria" placeholder="" style="height:80px"></textarea>
+        </div>
+		<div data-role="fieldcontain">
+			<div id="img_content" name="img_content" align="center"></div>
+        </div>
+	</div>
+	<div id="novo_rodape" name="novo_rodape">
+		<div class="ui-grid-b">
+			<div class="ui-block-a" style="padding-left:5px">
+				<a data-role="button" name="btVoltar" id="btVoltar" href="javascript:abreTela('nova_ocorrencia')" data-icon="back" data-iconpos="top" data-mini="true">
+					Voltar
+				</a>
+			</div>
+			<div class="ui-block-b">
+				<a data-role="button" href="javascript:man_tiraFoto()" data-mini="true" data-icon="star" data-iconpos="top">
+					Fotografia
+				</a>
+			</div>
+			<div class="ui-block-c">
+				<a data-role="button" href="javascript:salvar()" data-icon="check" data-iconpos="top" data-mini="true">
+					Concluir
+				</a>
+			</div>
+		</div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+insert into usuarios (id_perfil, user_cpf, user_name, user_password, user_password_reminder, user_email) values (1, '29044276867', 'Novo usuário', '123mudar', 'Escreva um lembrete relevante para a sua senha.', '@sentec.com.br')

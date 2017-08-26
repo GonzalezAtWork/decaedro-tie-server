@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+
+ <body>
+  <form name="Geral" method="post" action='http://www.buscacep.correios.com.br/servicos/dnec/consultaEnderecoAction.do'>
+		<span>Endereço ou CEP:<br/>
+			<input name="relaxation"/>
+		</span>		
+		<span>CEP de:<br/>
+			<select name="TipoCep">
+			  <option selected value="ALL">Todos</option>      
+			  <option value="LOG">Localidade/Logradouro</option>
+			  <option value="PRO">CEP Promocional</option>
+			  <option value="CPC">Caixa Postal Comunitária</option>
+			  <option value="GRU">Grande Usuário</option>
+			  <option value="UOP">Unidade Operacional</option>                                                             
+			</select>
+		</span>
+		<span class="t5col">
+			Pesquisar por palavras semelhantes <INPUT CHECKED name="semelhante" type="radio" value="N">&nbsp;<b>Não</b>&nbsp; <INPUT name="semelhante" type="radio" value="S"><b>Sim</b>
+		</span>
+		<span >
+			<button type="submit" class="btn1 f2col float-right">Buscar</button>
+			<input type="Hidden" name="cfm" value="1"/>
+			<input type="hidden" name="Metodo" value="listaLogradouro"/>
+			<input type="hidden" name="TipoConsulta" value="relaxation"/>
+			<input type="hidden" name="StartRow" value="1"/>
+			<input type="hidden" name="EndRow" value="10"/>
+		</span>
+		</form>
+		<textarea rows=25 cols=50>http://www.buscacep.correios.com.br/servicos/dnec/consultaEnderecoAction.do?
+TipoCep=ALL
+relaxation=Rua Caramuru, 412 Sao Paulo
+semelhante=N
+cfm=1
+Metodo=listaLogradouro
+TipoConsulta=relaxation
+StartRow=1
+EndRow=10</textarea>
+ </body>
+</html>
+
