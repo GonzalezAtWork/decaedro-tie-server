@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <database>
 	<host>127.0.0.1</host>
-	<name>kalitera</name>
+	<name>decaedro</name>
 	<port>5432</port>
 	<user>postgres</user>
 	<password>postgres</password>

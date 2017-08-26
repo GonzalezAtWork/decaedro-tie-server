@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application>
-	<name>Kalitera</name>
-	<description>Sistema de Manutenção</description>
+	<name>TIE</name>
+	<description>Ocorrências</description>
 	<version>
-		<number>1.0</number>
-		<build>1</build>
-		<date>07/04/2013</date>
+		<number>4.0</number>
+		<build>170826</build>
+		<date>07/04/2017</date>
 	</version>
 	<recordsToShow>15</recordsToShow>
 	<blockLenght>10</blockLenght>
