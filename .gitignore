@@ -1,3 +1,2 @@
 # Configuration
-config/tie4.decaedro.net_database.xml
-config/zelaznog.net_database.xml
+config/*_database.xml
