@@ -61,7 +61,7 @@ $(document).ready(function() {
 		//Rodando do Browser, e não do app - usar chrome.exe --allow-file-access-from-files
 		isAndroid = false;
 		document.getElementById('bt_menu').style.display = 'none';
-		URL_WEBSERVICE = "http://tie4.decaedro.net/ajax/"
+		URL_WEBSERVICE = "/ajax/"
 	}else{
 		URL_WEBSERVICE = Android.getWebService();
 	}

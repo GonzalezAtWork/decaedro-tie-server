@@ -43,11 +43,12 @@ $itensManutencao = str_replace(",",", ",$itensManutencao);
 if ($id_equipe == "") {
 	$id_equipe = 'null';
 }
+
 include('../classes/XMLObject.php');
 include('../classes/database.php');
 
 #Conexao ao banco de dados
-$db = Database::getInstance("sistema.kalitera.com.br");
+$db = Database::getInstance();
 
 if ($id_usuario == "" && $token != "") {
 	$query  = " select * from mobile_login where token = '". $token ."' ";
@@ -169,8 +170,8 @@ if ($id_usuario != "") {
 	//$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 	$headers .= "Content-Type: multipart/mixed; \r\n"; 
 	$headers .= "       boundary=\"{$mime_boundary}\" \r\n"; 
-	$headers .= "From: Kalitera <contato@kalitera.com.br>\r\n";
-	$headers .= "Return-Path: Kalitera <contato@kalitera.com.br>\r\n";
+	$headers .= "From: Decaedro <contato@tie4.decaedro.net>\r\n";
+	$headers .= "Return-Path: Decaedro <contato@tie4.decaedro.net>\r\n";
 
 	$images = '';
 

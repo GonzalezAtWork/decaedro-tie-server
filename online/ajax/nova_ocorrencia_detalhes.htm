@@ -9,7 +9,7 @@
 			$('#txt_titulo').html(ponto['endereco']);
 			$('#otima').val(ponto['otima']);
 			$('#simak').val(ponto['simak']);
-			$('#txt_detalhes').html('<div style="margin-bottom:6px;"><b>OTIMA:</b> '+ ponto['otima'] + '</div><div style="margin-bottom:6px;"><b>SIMAK:</b> '+ ponto['simak'] + '</div><div>' + ponto['tipo'] + '</div>');
+			$('#txt_detalhes').html('<div style="margin-bottom:6px;">'+ ponto['id_ponto'] + '-'+ ponto['otima'] + '-'+ ponto['simak'] + ' (' + ponto['tipo'] + ')</div>');
 			itensVistoria = "";
 			$('#observacaovistoria').val("");		
 			subparametro = 'NOVA';

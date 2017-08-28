@@ -324,7 +324,7 @@ if( $nomeImagensPublicidade != "" ){
 					echo '<img ';
 					echo ' download="' . $foto["nome"] . '.jpg" ';
 					//echo ' src="data:image/jpeg;base64,' . $foto["base64"] . '" ';
-					echo ' src="http://homologacao.kalitera.com.br/foto.php?id_foto='. $foto["id_foto"] .'"';
+					echo ' src="http://tie4.decaedro.net/foto.php?id_foto='. $foto["id_foto"] .'"';
 					echo ' height="500" ';
 					echo ' /><br/>&nbsp;<br/>&nbsp;';
 				}
@@ -439,7 +439,7 @@ if( $nomeImagensPublicidade != "" ){
 					echo '<img ';
 					echo ' download="' . $foto["nome"] . '.jpg" ';
 					//echo ' src="data:image/jpeg;base64,' . $foto["base64"] . '" ';
-					echo ' src="http://homologacao.kalitera.com.br/foto.php?id_foto='. $foto["id_foto"] .'"';
+					echo ' src="http://tie4.decaedro.net/foto.php?id_foto='. $foto["id_foto"] .'"';
 					echo ' height="500" ';
 					echo ' /><br/>&nbsp;<br/>&nbsp;';
 				}

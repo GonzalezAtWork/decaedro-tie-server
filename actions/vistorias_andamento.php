@@ -116,7 +116,7 @@ $encarregados = $drop->getHTMLFromQuery(' select nome as code, nome as label fro
 						$html .= ''.$row["tot_ocorrencia"].' ocorrências observadas<br/>';
 						$html .= ''.$row["tot_fotos"].' ocorrências fotografadas<br/>';
 						$html .= '&nbsp;<br/>';
-						$html .= '<a target="_blank" href="http://homologacao.kalitera.com.br/home.php?action=vistoriasGuiaPreenche&id_vistoria='.$row["id_vistoria"].'">Ver informações/fotos</a>';
+						$html .= '<a target="_blank" href="http://tie4.decaedro.net/home.php?action=vistoriasGuiaPreenche&id_vistoria='.$row["id_vistoria"].'">Ver informações/fotos</a>';
 
 						$html .= '</td>';
 						$html .= '</tr>';

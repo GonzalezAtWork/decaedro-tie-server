@@ -1,13 +1,42 @@
-<html>
+<?php
+include('classes/XMLObject.php');
+?><html>
 
   <head>
-   <title>Test</title>
+   <title>Database Test</title>
   </head>
 
   <body bgcolor="white">
 
-  <?
-  $link = pg_Connect("host=localhost dbname=zelaznog_kalitera user=zelaznog password=54NC7U5666");
+<?php
+  $dbParameters = new XMLObject();
+  $dbParameters->loadXMLFromFile($_SERVER['DOCUMENT_ROOT']."/config/". $_SERVER["SERVER_NAME"] ."_database.xml");
+?>
+  <table border="1">
+  <tr>
+   <th>host</th>
+   <th>dbname</th>
+   <th>port</th>
+   <th>user</th>
+   <th>password</th>
+  </tr>
+   <th><?php echo $dbParameters->host;?></th>
+   <th><?php echo $dbParameters->name;?></th>
+   <th><?php echo $dbParameters->port;?></th>
+   <th><?php echo $dbParameters->user;?></th>
+   <th><?php echo $dbParameters->password;?></th>
+  </tr>
+  </table>
+<?php
+  $link = pg_Connect(
+      "host=".$dbParameters->host.
+      " dbname=".$dbParameters->name.
+      " port=".$dbParameters->port.
+      " user=".$dbParameters->user.
+      " password=".$dbParameters->password .
+      " connect_timeout=15000"
+      );
+
   $result = pg_exec($link, "select * from usuarios");
   $numrows = pg_numrows($result);
   echo "<p>link = $link<br>
@@ -15,7 +44,6 @@
   numrows = $numrows</p>
   ";
   ?>
-
   <table border="1">
   <tr>
    <th>ID</th>

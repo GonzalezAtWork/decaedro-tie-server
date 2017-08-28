@@ -58,7 +58,7 @@ if ($db->getRows() > 0) {
 	$tstamp = $login->id_usuario ."_". date('U');
 
 	$result = array(
-		//"url_webservice"=>"http://homologacao.kalitera.com.br/ajax/",
+		//"url_webservice"=>"http://tie4.decaedro.net/ajax/",
 		"url_webservice"=>$login->url, 
 		"id_usuario"=>$login->id_usuario, 
 		"nome_usuario"=>$login->nome, 

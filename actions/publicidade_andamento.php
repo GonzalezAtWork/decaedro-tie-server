@@ -66,7 +66,7 @@
 						$html .= ''.$row["tot_ocorrencia"].' ocorrências observadas<br/>';
 						$html .= ''.$row["tot_fotos"].' ocorrências fotografadas<br/>';
 						$html .= '&nbsp;<br/>';
-						$html .= '<a target="_blank" href="http://homologacao.kalitera.com.br/home.php?action=oss_edit&id_os='.$row["id_os"].'">Ver informações/fotos</a>';
+						$html .= '<a target="_blank" href="http://tie4.decaedro.net/home.php?action=oss_edit&id_os='.$row["id_os"].'">Ver informações/fotos</a>';
 						$html .= '</td>';
 						$html .= '</tr>';
 					}

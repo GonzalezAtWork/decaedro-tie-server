@@ -22,7 +22,7 @@ class Database {
 		// $dbParameters->loadXMLFromFile($_SERVER['DOCUMENT_ROOT']."/SisManutHomologacao/config/".$_SERVER["SERVER_NAME"]."_database.xml");
 
 		// PRODUCAO / DESENVOLVIMENTO LOCAL
-		$dbParameters->loadXMLFromFile($_SERVER['DOCUMENT_ROOT']."/tie4/config/". $BANCO ."_database.xml");
+		$dbParameters->loadXMLFromFile($_SERVER['DOCUMENT_ROOT']."/config/". $BANCO ."_database.xml");
 
 		// DESENVOLVIMENTO MOBILE - TESTE
 		//	$dbParameters->loadXMLFromFile($_SERVER['DOCUMENT_ROOT']."/Kalitera/config/".$_SERVER["SERVER_NAME"]."_database.xml");
@@ -36,10 +36,17 @@ class Database {
 		$this->debug = $dbParameters->debug;
 		$this->arrayFields = array();
 		
-		$this->connection = @pg_connect("host=".$dbParameters->host." dbname=".$dbParameters->name." port=".$dbParameters->port." user=".$dbParameters->user." password=".$dbParameters->password);
+		$this->connection = @pg_connect(
+			"host=".$dbParameters->host.
+			" dbname=".$dbParameters->name.
+			" port=".$dbParameters->port.
+			" user=".$dbParameters->user.
+			" password=".$dbParameters->password .
+			" connect_timeout=15000"
+		);
 
 		$status = pg_connection_status($this->connection);
-		
+
 		if ($status === PGSQL_CONNECTION_OK) {
 			$this->status = true;
 		} else {
