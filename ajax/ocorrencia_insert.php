@@ -101,6 +101,7 @@ if ($id_usuario != "") {
 	$query .= "		usuarios.nome as usuario, ";
 	$query .= "		perfis.nome as perfil, ";
 	$query .= "		pontos.endereco as endereco, ";
+	$query .= "		pontos.id_ponto as id_ponto, ";
 	$query .= "		pontos.codigo_abrigo as simak, ";
 	$query .= "		pontos.codigo_novo as otima, ";
 	$query .= "		roteiros.nome as roteiro, ";
@@ -119,19 +120,20 @@ if ($id_usuario != "") {
 	$db->execute();
 	$dados_email = $db->getResultAsObject();
 
-	$subject = "Nova Ocorrencia - Simak: " . $dados_email->simak . " - Ocorrencia: " . $dados_email->id_ocorrencia;
+	$subject = "Ocorrencia $dados_email->id_ocorrencia - Ponto $dados_email->id_ponto";
 
 	$email_body  = '';
 	$email_body .= '<!DOCTYPE html><html><head><meta http-equiv="content-language" content="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="cache-control" content="no-cache"/><meta http-equiv="expires" content="Mon, 22 Jul 2002 11:12:01 GMT"/><meta http-equiv="pragma" content="no-cache"/><title>Kalitera - Nova Ocorrência</title><style>body {margin: 0px 0px 0px 0px;font-family: Verdana,Helvetica,sans-serif;font-size: 9pt;width: 100%;text-align: center;}fieldset {border: 3px solid rgb(0, 92, 149);padding: 6px 16px 16px 6px;text-align: left;margin: 16px 10px 10px 16px;background-color: rgb(244, 244, 255);border-radius: 16px 16px 16px 16px;width: 90%;}legend {font-family: Verdana,Helvetica,sans-serif;font-size: 9pt;font-weight: bold;background-color: rgb(0, 92, 149);color: rgb(255, 255, 255);padding: 8px 16px;border-radius: 16px 16px 16px 16px;}ul {list-style-type: none;margin: 0px 10px 0px 0px;background: none repeat scroll 0% 0% rgb(238, 238, 238);padding: 5px;width: 420px;}li {font-weight: normal;color: rgb(85, 85, 85);margin: 5px;padding: 5px;font-size: 1em;width: 400px;border: 1px solid rgb(211, 211, 211);background: repeat-x scroll 50% 50% rgb(230, 230, 230);}</style></head>';
 	$email_body .= '<body align="center">';
 	$email_body .= '<fieldset>';
-	$email_body .= '<legend>Dados da Ocorrência - Código '. $dados_email->id_ocorrencia .'</legend>';
+	$email_body .= '<legend>Dados da Ocorrência '. $dados_email->id_ocorrencia .'</legend>';
 	$email_body .= '<div width="100%" align="center">';
 	$email_body .= '<ul>';
 	$email_body .= '<li align="left"><B>DATA: </B>'. $dados_email->data_formatada .'</li>';
 	$email_body .= '<li align="left"><B>USUÁRIO: </B>'. $dados_email->usuario .' ('. $dados_email->perfil .')</li>';
-	$email_body .= '<li align="left"><B>SIMAK: </B>'. $dados_email->simak .'</li>';
-	$email_body .= '<li align="left"><B>OTIMA: </B>'. $dados_email->otima .'</li>';
+	$email_body .= '<li align="left"><B>PONTO: </B>'. $dados_email->id_ponto .'</li>';
+	$email_body .= '<li align="left"><B>CODIGO A: </B>'. $dados_email->simak .'</li>';
+	$email_body .= '<li align="left"><B>CODIGO B: </B>'. $dados_email->otima .'</li>';
 	$email_body .= '<li align="left"><B>ENDEREÇO: </B>'. $dados_email->endereco .'</li>';
 	$email_body .= '<li align="left"><B>ROTEIRO: </B>'. $dados_email->roteiro .'</li>';
 	$email_body .= '</ul>';
@@ -160,22 +162,15 @@ if ($id_usuario != "") {
 		$email_body .= '</fieldset>';
 	}
 
-	$email_body .= '</body>';
-	$email_body .= '</html>';
 
-	$semi_rand = md5(time());
-	$mime_boundary = "==Multipart_Boundary_x{$semi_rand}x"; 
-
-	$headers = "MIME-Version: 1.1\r\n";
-	//$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-	$headers .= "Content-Type: multipart/mixed; \r\n"; 
-	$headers .= "       boundary=\"{$mime_boundary}\" \r\n"; 
-	$headers .= "From: Decaedro <contato@tie4.decaedro.net>\r\n";
-	$headers .= "Return-Path: Decaedro <contato@tie4.decaedro.net>\r\n";
+	$mime_boundary = 'Multipart_Boundary_x'.md5(time()).'x';
 
 	$images = '';
 
 if ($fotos != "") {
+
+	//$email_body .= '<fieldset>';
+	//$email_body .= '<legend>Fotografias</legend>';
 	
 	$fotos = str_replace("NOVA", $id_ocorrencia, $fotos);
 	$fotos = str_replace("[","",$fotos);
@@ -191,16 +186,17 @@ if ($fotos != "") {
 		$foto = str_replace("\n","###",$foto);
 		$foto = '{'. trim($foto) .'}';
 		$foto = json_decode( $foto );
+		$foto->base64 = str_replace("###","\n",$foto->base64);
 
-		$images .= "\r\n\r\n--{$mime_boundary}\r\n";
+    	$images .= "--$mime_boundary\n";
 		$images .= "Content-Type: image/jpeg; name=". $foto->nome .".jpg \r\n";
 		$images .= "Content-Disposition: attachment; filename=". $foto->nome .".jpg \r\n";
 		$images .= "Content-Transfer-Encoding: base64 \r\n";
 		$images .= "X-Attachment-Id: ". $foto->nome ." \r\n\r\n";
-		$images .= str_replace("###","\n",$foto->base64);
+		$images .= $foto->base64."\r\n\r\n";
 
 		$query .= "(";
-		$query .= "'". str_replace("###","",$foto->base64) ."',";
+		$query .= "'". $foto->base64."',";
 		$query .= "'". $foto->data ."',";
 		$query .= "'". $foto->id_item ."',";
 		$query .= "'". $foto->id_vistoria ."',";
@@ -222,8 +218,12 @@ if ($fotos != "") {
 		$msg_erro = '{"ERROR":"'. $e->getMessage() .'"}';
 	}
 }
+//	$email_body .= '</fieldset>';
 
-	$email_body = $email_body . $images;
+	$email_body .= '</body>';
+	$email_body .= '</html>';
+
+	//$email_body = $email_body . $images;
 
 	$str_destinatario = "";
 
@@ -238,18 +238,41 @@ if ($fotos != "") {
 		}
 		$str_destinatario .= $destinatario["nome"].'<'.$destinatario["email"].'>';
 	}
+	
+	$text_content = "testing";
 
-   //$headers .= 'Bcc:'.$str_destinatario . "\r\n";
-	//$headers = $headers.$images;
-	$headers .= "\r\n\r\n--{$mime_boundary}\r\n";
-	$headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+	$headers  = "MIME-Version: 1.0\n";
+	$headers .= "From: TIE4 <contato@tie4.decaedro.net> \r\n"; // remetente
+    $headers .= 'Cc:'.$str_destinatario . " \r\n";
+	$headers .= "Return-Path: contato@tie4.decaedro.net \r\n"; // return-path
+	$headers .= "Content-Type: multipart/alternative; boundary=\"$mime_boundary\"\n";
+	$headers .= "Content-Transfer-Encoding: 7bit\n";
 
-	$envio = mail($str_destinatario, $subject , $email_body, $headers);
+	# Add in B64 Images
+	$body   .= $images;
+
+	//$body    = "This is a multi-part message in mime format.\n\n";
+	# Add in plain text version
+	$body   .= "--$mime_boundary\n";
+	$body   .= "Content-Type: text/plain; charset=\"charset=us-ascii\"\n";
+	$body   .= "Content-Transfer-Encoding: 7bit\n\n";
+	$body   .= $text_content;
+	$body   .= "\n\n";
+	# Add in HTML version
+	$body   .= "--$mime_boundary\n";
+	$body   .= "Content-Type: text/html; charset=\"UTF-8\"\n";
+	$body   .= "Content-Transfer-Encoding: 7bit\n\n";
+	$body   .= $email_body;
+	$body   .= "\n\n";
+	# Close Boundary
+	$body   .= "--$mime_boundary--\n"; 
+
+	$envio = mail("contato@tie4.decaedro.net", $subject , $body, $headers);
 
 	if ($envio) {
-		//echo "Mensagem enviada com sucesso";
+		//$msg_erro = '{"ERROR":"Agora FOI!"}';
 	} else {
-		$msg_erro = '{"ERROR":"E-mail não enviado"}';
+		$msg_erro = '{"ERROR":"E-mail não enviado para: '. $str_destinatario .'"}';
 	}
 
 } else {

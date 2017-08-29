@@ -1,0 +1,240 @@
+[27-Aug-2017 20:48:08 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 20:48:23 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 20:49:03 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 20:50:37 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 20:50:52 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_ponto.php(25): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 20:51:10 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 20:51:36 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 20:52:07 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 20:52:40 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 20:54:16 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 20:58:14 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 21:04:13 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  invalid input syntax for integer: ""
+LINE 1: ...o.id_tipo = pontosTipo.id_tipo   where id_ponto = '' or codi...
+                                                             ^' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/busca_ponto.php(27): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
+[27-Aug-2017 21:05:53 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  syntax error at or near "or"
+LINE 1: ....id_tipo = pontosTipo.id_tipo   where id_ponto =  or codigo_...
+                                                             ^' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/busca_ponto.php(27): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
+[27-Aug-2017 21:05:54 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  syntax error at or near "or"
+LINE 1: ....id_tipo = pontosTipo.id_tipo   where id_ponto =  or codigo_...
+                                                             ^' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/busca_ponto.php(27): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
+[27-Aug-2017 21:05:55 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  syntax error at or near "or"
+LINE 1: ....id_tipo = pontosTipo.id_tipo   where id_ponto =  or codigo_...
+                                                             ^' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/busca_ponto.php(27): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
+[27-Aug-2017 21:05:56 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  syntax error at or near "or"
+LINE 1: ....id_tipo = pontosTipo.id_tipo   where id_ponto =  or codigo_...
+                                                             ^' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/busca_ponto.php(27): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
+[27-Aug-2017 21:05:57 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  syntax error at or near "or"
+LINE 1: ....id_tipo = pontosTipo.id_tipo   where id_ponto =  or codigo_...
+                                                             ^' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/busca_ponto.php(27): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
+[27-Aug-2017 21:08:35 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_ponto.php(25): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 21:08:48 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 21:10:08 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 21:12:35 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 21:16:01 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 22:06:42 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 22:31:17 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 22:31:44 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 22:32:29 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 22:33:24 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 22:34:00 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 22:34:24 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[27-Aug-2017 22:35:11 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'File not found - [/home/zelaznog/public_html/config/zelaznog.net_database.xml]' in /home/zelaznog/public_html/tie4/classes/XMLObject.php:79
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/classes/database.php(25): XMLObject->loadXMLFromFile('/home/zelaznog/...')
+#1 /home/zelaznog/public_html/tie4/classes/database.php(71): Database->__construct()
+#2 /home/zelaznog/public_html/tie4/ajax/busca_endereco.php(23): Database::getInstance()
+#3 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/XMLObject.php on line 79
+[28-Aug-2017 22:06:49 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  null value in column "posicao" violates not-null constraint
+DETAIL:  Failing row contains (59742, 2017-08-28 19:06:49.384219, null, 18530, null, null, null, , 24, 136, 29, 28, 158, Buvuvuv, null, , , null, t, f, t, null, null, null, 2, f).' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/ocorrencia_insert.php(80): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
+[28-Aug-2017 22:07:09 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  null value in column "posicao" violates not-null constraint
+DETAIL:  Failing row contains (59743, 2017-08-28 19:07:09.266836, null, 18530, null, null, null, , 24, 136, 29, 28, 158, Buvuvuv, null, , , null, t, f, t, null, null, null, 2, f).' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/ocorrencia_insert.php(80): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
+[28-Aug-2017 22:07:16 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  null value in column "posicao" violates not-null constraint
+DETAIL:  Failing row contains (59744, 2017-08-28 19:07:16.526209, null, 18530, null, null, null, , 24, 136, 29, 28, 158, Buvuvuv, null, , , null, t, f, t, null, null, null, 2, f).' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/ocorrencia_insert.php(80): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
+[28-Aug-2017 22:07:23 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  null value in column "posicao" violates not-null constraint
+DETAIL:  Failing row contains (59745, 2017-08-28 19:07:23.586154, null, 18530, null, null, null, , 24, 136, 29, 28, 158, Buvuvuv, null, , , null, t, f, t, null, null, null, 2, f).' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/ocorrencia_insert.php(80): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
+[28-Aug-2017 22:07:57 UTC] PHP Fatal error:  Uncaught exception 'Exception' with message 'ERROR:  null value in column "posicao" violates not-null constraint
+DETAIL:  Failing row contains (59746, 2017-08-28 19:07:57.898387, null, 18530, null, null, null, , 24, 136, 29, 28, 158, Buvuvuv, null, , , null, t, f, t, null, null, null, 2, f).' in /home/zelaznog/public_html/tie4/classes/database.php:138
+Stack trace:
+#0 /home/zelaznog/public_html/tie4/ajax/ocorrencia_insert.php(80): Database->execute()
+#1 {main}
+  thrown in /home/zelaznog/public_html/tie4/classes/database.php on line 138
